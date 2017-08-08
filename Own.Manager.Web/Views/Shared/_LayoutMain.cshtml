@@ -1,0 +1,39 @@
+﻿@using System.Web.Optimization
+@using Abp.Timing
+@{
+    SetAntiForgeryCookie();
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="shortcut icon" href="~/favicon.ico">
+
+    <title>Manager</title>
+    @Styles.Render("~/Scripts/easyui/themes/metro-orange/easyui.css")
+    @Styles.Render("~/Scripts/easyui/themes/icon.css", "~/Scripts/easyui/themes/color.css")
+
+    <!-- View specific styles -->
+    @RenderSection("styles", required: false)
+
+    <script type="text/javascript">
+        //This is used to get the application's root path from javascript. It's useful if you're running application in a virtual directory under IIS.
+        var abp = abp || {}; abp.appPath = '@ApplicationPath';
+    </script>
+
+</head>
+<body>
+   
+    @RenderBody()
+
+    @Scripts.Render("~/Scripts/jquery-2.1.4.min.js", "~/Scripts/easyui/jquery.easyui.min.js", "~/Scripts/easyui/locale/easyui-lang-zh_CN.js")
+
+    <!-- View specific scripts -->
+    @RenderSection("scripts", required: false)
+</body>
+</html>

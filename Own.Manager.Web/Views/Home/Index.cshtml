@@ -1,0 +1,83 @@
+﻿@{
+    Layout = null;
+}
+
+@using System.Web.Optimization
+@using Abp.Timing
+@{
+    SetAntiForgeryCookie();
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="shortcut icon" href="~/favicon.ico">
+
+    <title>Manager</title>
+    @Styles.Render("~/Scripts/easyui/themes/metro-orange/easyui.css")
+    @Styles.Render("~/Scripts/easyui/themes/icon.css", "~/Scripts/easyui/themes/color.css")
+
+    <script type="text/javascript">
+        //This is used to get the application's root path from javascript. It's useful if you're running application in a virtual directory under IIS.
+        var abp = abp || {}; abp.appPath = '@ApplicationPath';
+    </script>
+
+</head>
+<body class="easyui-layout">
+    <!--top-->
+    <div data-options="region:'north'" style="height: 80px;">
+        @*@Html.Partial("_TopBar")*@
+        <h1>管理系统</h1>
+    </div>
+    <!--bottom-->
+    <div data-options="region:'south'" style="height: 30px;"></div>
+
+    <div data-options="region:'west',title:'系统菜单'" style="width: 200px;">
+
+        <ul id="menuTree" class="easyui-tree">
+            @*<li>
+                    <span>系统管理</span>
+                    <ul>
+                        <li>
+                            <span>菜单管理</span>
+                            <ul>
+                                <li><span><a href="#">菜单列表</a></span></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span>角色管理</span>
+                            <ul>
+                                <li><span><a href="Role/index">角色列表</a></span></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span>部门管理</span>
+                            <ul>
+                                <li><span><a href="#">部门列表</a></span></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>*@
+        </ul>
+    </div>
+
+    <!--content-->
+    <div data-options="region:'center'" style="border:0; background: #eee;">
+        <div id="tabs" class="easyui-tabs" data-options="fit:true">
+            <div title="欢迎" style="padding:20px;">
+                欢迎！
+            </div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/Scripts/jquery-2.1.4.min.js", "~/Scripts/easyui/jquery.easyui.min.js", "~/Scripts/easyui/locale/easyui-lang-zh_CN.js")
+
+    @Scripts.Render("~/js/main.js")
+</body>
+</html>
+
