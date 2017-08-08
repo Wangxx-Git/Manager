@@ -3,10 +3,35 @@
     ViewBag.Title = "用户管理";
 }
 
-<table id="dg_user"></table>
+<table id="dgUser"></table>
 
-<div id="dg_user_toolbar">
+<div id="dgUser_tb">
+    <a id="dgUser_tb_btnNew" href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true" iconCls="icon-add">New User</a>
+    <a id="dgUser_tb_btnEdit" href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true" iconCls="icon-edit">Edit User</a>
 
+</div>
+
+<div id="dlgAddUser" style="width:500px;">
+    <form id="dlgAddUser_form" novalidate style="margin:0;padding:20px 50px">
+        <div style="margin-bottom:20px;border-bottom:1px solid #ccc">User Information</div>
+        <div style="margin-bottom:10px">
+            <input name="firstname" class="easyui-textbox" required label="First Name:" style="width:100%">
+        </div>
+        <div style="margin-bottom:10px">
+            <input name="lastname" class="easyui-textbox" required label="Last Name:" style="width:100%">
+        </div>
+        <div style="margin-bottom:10px">
+            <input name="phone" class="easyui-textbox" required label="Phone:" style="width:100%">
+        </div>
+        <div style="margin-bottom:10px">
+            <input name="email" class="easyui-textbox" required validType="email" label="Email:" style="width:100%">
+        </div>
+    </form>
+
+</div>
+<div id="dlgAddUser_buttons">
+    <a id="dlgAddUser_buttons_btnSave" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-ok" onclick="saveUser()">Save</a>
+    <a id="dlgAddUser_buttons_btnClose" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')">Cancel</a>
 </div>
 
 @section scripts{
